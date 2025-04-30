@@ -20,6 +20,7 @@ function AppProductos() {
       <button onClick={() => agregarProducto(productos)}>Agregar producto</button>
       <button onClick={() => eliminarProductoMasBarato(productos)}>Eliminar producto más barato</button>
     </>
+    
   )
 }
 
