@@ -1,4 +1,4 @@
-//import '/src/assets/css/mainProductos.css'
+import '/src/assets/css/indexProductos.css'
 import { guardar,mostrar,crearnuevo, crearIVA } from './Producto-funciones.jsx'
 
 function AppProductos() {
