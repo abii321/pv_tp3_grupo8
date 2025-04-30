@@ -1,5 +1,5 @@
-//import '/src/assets/css/mainProductos.css' 
-import { guardar,mostrar,crearnuevo, crearIVA } from './Producto-funciones.jsx'
+//import '/src/assets/css/mainProductos.css'
+import { guardar,mostrar,crearnuevo,crearIVA,ordenarProductosPorPrecio, agregarProducto, eliminarProductoMasBarato } from './Producto-funciones.jsx'
 
 function AppProductos() {
   const productos = [];
@@ -16,7 +16,11 @@ function AppProductos() {
       <button onClick={() => mostrar(productos)}>Mostrar por consola</button>
       <button onClick={() => crearnuevo(productos)}>Crear con precio mayor a 20</button>
       <button onClick={() => crearIVA(productos)}>Mostrar con IVA</button>
+      <button onClick={() => ordenarProductosPorPrecio(productos)}>Ordenar productos por precio</button>
+      <button onClick={() => agregarProducto(productos)}>Agregar producto</button>
+      <button onClick={() => eliminarProductoMasBarato(productos)}>Eliminar producto más barato</button>
     </>
+    
   )
 }
 
