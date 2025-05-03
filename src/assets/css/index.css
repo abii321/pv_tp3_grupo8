@@ -1,32 +1,44 @@
-body {
-  font-family: Arial, sans-serif;
-}
-.container {
-  max-width: 400px;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-input[type="text"], button {
+/*Todo*/
+*{
+  margin: 0;
   padding: 10px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+#root{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/*Productos*/
+#listaProductos h1{
+  color: #baa1a7;
+}
+#listaProductos{
+  padding:10px;
+  border:10px;
+  text-align: center;
+  justify-content: center;
+  size:40%;
+  border: 1px, solid,#baa1a7;
+}
+#listaProductos input{
   margin: 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+#listaProductos button{
   padding: 5px;
-  border-bottom: 1px solid #ccc;
+  text-align:center;
+  margin:5px;
+  color:white;
+  background-color: #baa1a7;
+  border:none;
 }
-.completed {
-  text-decoration: line-through;
-  color: gray;
+#listaProductos button:hover{
+  cursor:pointer;
 }
+#listaProductos ul{
+  padding-left: 0;
+  list-style-position: inside;
+}
+
+
+/*Tareas*/
