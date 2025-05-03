@@ -1,42 +1,55 @@
-export const guardar = (productos) => {
-    const n = document.getElementById("name").value;
-    const p = parseFloat(document.getElementById("precio").value);
-    productos.push({descripcion:n, precio:p});
-}
-
 //Ejercicio 1
-export const mostrar = (productos) => {
-    productos.forEach(producto => {
-        console.log("descripcion: "+producto.descripcion);
-        console.log("precio: "+producto.precio);
-    });
+export const guardar = (productos) => {
+    let lista = document.getElementById("producto");
+    lista.innerHTML = "";
+
+    const name = document.getElementById("name");
+    const cost = document.getElementById("precio");
+    const n=name.value, p=parseFloat(cost.value);
+
+    productos.push({descripcion:n, precio:p});
+
+    for(let i=0; i<productos.length; i++){
+        const item = document.createElement("li");
+        item.textContent = `${productos[i].descripcion} $${productos[i].precio}`;
+        lista.appendChild(item);
+    }
+    name.value="";
+    cost.value="";
 }
 
 //Ejercicio 2
-export const crearnuevo = (productos) =>{
-    let nuevo=crear(productos);
-    mostrar(nuevo);
+export const filtrar = (productos) => {
+    let lista = document.getElementById("producto");
+    lista.innerHTML = "";
+  
+    let filtrados = productos.filter(p => p.precio > 2000);
+    filtrados.forEach(p => {
+      const item = document.createElement("li");
+      item.textContent = `${p.descripcion} $${p.precio}`;
+      lista.appendChild(item);
+    });
 }
-const crear = (productos) => {
-    let nuevo=productos.filter(producto => producto.precio>20);
-    return nuevo;
-}
-
+  
 //Ejercicio 3
-export const crearIVA = (productos) => {
-    let nuevo2=crearconIVA(productos);
-    mostrar(nuevo2);
-}
-const crearconIVA = (productos) => {
-    let nuevo2=productos.map( producto => ({
-        descripcion: producto.descripcion,
-        precio: producto.precio+21*producto.precio/100
+export const incluirIVA = (productos) => {
+    let lista = document.getElementById("producto");
+    lista.innerHTML = "";
+
+    let nuevo2=productos.map( p => ({
+        descripcion: p.descripcion,
+        precio: p.precio+21*p.precio/100
     }));
-    return nuevo2;
+
+    for(let i=0; i<nuevo2.length; i++){
+        const item = document.createElement("li");
+        item.textContent = `${nuevo2[i].descripcion} $${nuevo2[i].precio}`;
+        lista.appendChild(item);
+    }
 }
 
 //Ejercicio 4
-export const ordenarProductosPorPrecio = (productos) => {
+/*export const ordenarProductosPorPrecio = (productos) => {
     productos.sort((a, b) => a.precio - b.precio);
     mostrar(productos);
 }
@@ -81,4 +94,4 @@ export const eliminarProductoMasBarato = (productos) => {
     }
 
     mostrar(productos);
-}
+}*/
