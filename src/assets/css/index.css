@@ -40,5 +40,42 @@
   list-style-position: inside;
 }
 
-
 /*Tareas*/
+#listaTareas h1 {
+  color: #baa1a7;
+}
+
+#listaTareas {
+  padding: 10px;
+  border: 10px;
+  text-align: center;
+  justify-content: center;
+  border: 1px solid #baa1a7;
+}
+
+#listaTareas input {
+  margin: 5px;
+  padding: 5px;
+}
+
+#listaTareas button {
+  padding: 5px 10px;
+  text-align: center;
+  margin: 5px;
+  color: white;
+  background-color: #baa1a7;
+  border: none;
+}
+
+#listaTareas button:hover {
+  cursor: pointer;
+}
+
+#listaTareas ul {
+  padding-left: 0;
+  list-style-position: inside;
+}
+
+#listaTareas li {
+  margin-bottom: 10px;
+}
