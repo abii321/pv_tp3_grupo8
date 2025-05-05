@@ -39,6 +39,43 @@
   padding-left: 0;
   list-style-position: inside;
 }
-
-
 /*Tareas*/
+h1{
+  color: #baa1a7
+}
+button{
+  padding: 5px;
+  text-align:center;
+  margin:5px;
+  color:white;
+  background-color: #baa1a7;
+  border:none;}
+  div{
+    padding:10px;
+    border:10px;
+    text-align: center;
+    justify-content: center;
+    size:40%;
+    border: 1px, solid,#baa1a7;
+  }
+input[type="text"], button {
+  padding: 10px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid ;
+}
+ul {
+  padding-left: 0;
+  list-style-position: inside;
+}
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  border-bottom: 1px solid #baa1a7;
+}
+.completed {
+  text-decoration: line-through;
+  color:  #baa1a7;
+}
