@@ -20,7 +20,7 @@ export const AppTareas = () => {
   };
 
   return (
-    <div>
+    <div id="listaTareas">
       <h1>Lista de Tareas</h1>
       <TaskInput onAdd={addTask} />
       <TaskList tasks={tasks} onToggle={handleToggle} onDelete={handleDelete} />
