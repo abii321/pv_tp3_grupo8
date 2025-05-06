@@ -84,11 +84,10 @@ const TaskList = ({ tasks, onToggle, onDelete }) => (
 
 const TaskItem = ({ task, onToggle, onDelete }) => (
   <li>
-    <input 
-      type="checkbox" 
-      checked={task.completed} 
-      onChange={() => onToggle(task.id)} 
-    />
+    <button onClick={() => onToggle(task.id)}>
+  {task.completed ? 'Desmarcar' : 'Realizada'}
+</button>
+
     <span style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>
       <strong>{task.text}</strong> - {task.descripcion} - {task.fecha}
     </span>
