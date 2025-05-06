@@ -1,13 +1,12 @@
 // tareas.jsx
-
 import { useState } from 'react';
 import { crearTarea, toggleTarea, eliminarTarea } from './Tareas-funciones.jsx';
 
 export const AppTareas = () => {
   const [tasks, setTasks] = useState([]);
 
-  const addTask = (text) => {
-    const nueva = crearTarea(text);
+  const addTask = (nombre, descripcion, fecha) => {
+    const nueva = crearTarea(nombre, descripcion, fecha);
     setTasks(prev => [...prev, nueva]);
   };
 
@@ -29,22 +28,41 @@ export const AppTareas = () => {
 };
 
 const TaskInput = ({ onAdd }) => {
-  const [text, setText] = useState('');
+  const [nombre, setNombre] = useState('');
+  const [descripcion, setDescripcion] = useState('');
+  const [fecha, setFecha] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (text.trim() === '') return;
-    onAdd(text);
-    setText('');
+    if (!nombre.trim() || !descripcion.trim() || !fecha) return;
+
+    onAdd(nombre, descripcion, fecha);
+    setNombre('');
+    setDescripcion('');
+    setFecha('');
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <input 
         type="text" 
-        value={text} 
-        onChange={(e) => setText(e.target.value)} 
-        placeholder="Nueva tarea" 
+        value={nombre} 
+        onChange={(e) => setNombre(e.target.value)} 
+        placeholder="Nombre de la tarea" 
+        required
+      />
+      <input 
+        type="text" 
+        value={descripcion} 
+        onChange={(e) => setDescripcion(e.target.value)} 
+        placeholder="Descripción"
+        required
+      />
+      <input 
+        type="date" 
+        value={fecha} 
+        onChange={(e) => setFecha(e.target.value)} 
+        required
       />
       <button type="submit">Agregar</button>
     </form>
@@ -72,8 +90,9 @@ const TaskItem = ({ task, onToggle, onDelete }) => (
       onChange={() => onToggle(task.id)} 
     />
     <span style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>
-      {task.text}
+      <strong>{task.text}</strong> - {task.descripcion} - {task.fecha}
     </span>
     <button onClick={() => onDelete(task.id)}>Eliminar</button>
   </li>
 );
+
