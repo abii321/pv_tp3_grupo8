@@ -1,4 +1,4 @@
-import { guardar,filtrar, incluirIVA /*,ordenarProductosPorPrecio, agregarProducto, eliminarProductoMasBarato*/ } from './Producto-funciones.jsx'
+import { guardar,filtrar, incluirIVA, ordenarPorPrecio, eliminarMasBarato } from './Producto-funciones.jsx'
 
 function AppProductos() {
   const productos = [];
@@ -11,11 +11,10 @@ function AppProductos() {
       <button onClick={() => guardar(productos)}>Agregar</button>
       <button onClick={() => filtrar(productos)}>Filtrar</button>
       <button onClick={() => incluirIVA(productos)}>Incluir IVA</button>
-      
-      {/**<button onClick={() => ordenarProductosPorPrecio(productos)}>Ordenar productos por precio</button>
-      <button onClick={() => agregarProducto(productos)}>Agregar producto</button>
-      <button onClick={() => eliminarProductoMasBarato(productos)}>Eliminar producto más barato</button>**/}
+      <button onClick={() => ordenarPorPrecio(productos)}>Ordenar</button>
+      <button onClick={() => eliminarMasBarato(productos)}>Eliminar más barato</button>
 
+      
       <ul id="producto">
       </ul>
     </div>
